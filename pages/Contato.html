@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <script src="/layout/header.js"></script>
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            createHeader();
+        });
+    </script>
+
+    <main>
+        <div class="wrapper">
+            <h1>Contatos</h1>
+
+            <form>
+                <fieldset>
+                    <legend>Dados Pessoais</legend>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" value="teste" placeholder="teste">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Preferências</legend>
+                    <p>Em qual bolsa você tem mais investimentos?</p>
+                    <div>
+                        <input type="radio" id="ibovespa" name="bolsa" value="ibovespa">
+                        <label for="ibovespa">Ibovespa</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="nasdaq" name="bolsa" value="nasdaq">
+                        <label for="nasdaq">Nasdaq</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="nyse" name="bolsa" value="nyse" checked>
+                        <label for="nyse">Nyse</label>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="checkbox" id="newsletter" name="news">
+                        <label for="newsletter">Deseja receber nossos informativos?</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="terms" name="terms">
+                        <label for="terms">Aceita nosso termo de uso?</label>
+                    </div>
+                </fieldset>
+                <label for="estados">Qual seu Estado?</label>
+                <select id="estados" name="estados">
+                    <option>São Paulo</option>
+                    <option>Rio de Janeiro</option>
+                    <option>Minas Gerais</option>
+                </select>
+
+                <label for="comentario">Digite seu comentário:</label>
+                <textarea id="comentario" name="comentario"></textarea>
+
+                <input type="submit" value="Enviar">
+                <button type="reset">Resetar</button>
+
+            </form>
+
+        </div>
+    </main>
+
+    <script>
+        const bcrypt = require('bcrypt');
+
+        const saltRounds = 10;
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const plainPassword = document.getElementById('senha').value;
+
+            bcrypt.hash(plainPassword, saltRounds, function (err, hash) {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+                console.log('Hashed password:', hash);
+
+                // Step 4: Verify the hashed password
+                bcrypt.compare(plainPassword, hash, function (err, result) {
+                    if (err) {
+                        console.error(err);
+                        return;
+                    }
+                    console.log('Password match:', result); // true
+                });
+            });
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
