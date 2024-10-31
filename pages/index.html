@@ -45,30 +45,38 @@
             <div>
 
                 <div>
-                    <form action="submit">
+                    <form action="submit" id="exempleCalc">
 
 
-                        <fieldset>
+                        <fieldset class="exempleCalc">
 
                             <label for="num1" class="text-secondary">Número 1:</label>
-                            <input type="number" id="num1" name="num1" required>
+                            <input type="number" id="num1" name="num1" min="0" required>
 
                             <label for="num2" class="text-secondary">Número 2:</label>
-                            <input type="number" id="num2" name="num2" required>
+                            <input type="number" id="num2" name="num2" min="0" required>
 
                         </fieldset>
 
-                        <fieldset >
+                        <fieldset class="exempleCalc">
 
-                            <input class="form-check-input" type="radio" name="plus" id="plus" value="plus" checked>
-                            <label class="form-check-label text-secondary" for="plus">
-                              +
-                            </label>
-    
-                            <input class="form-check-input" type="radio" name="less" id="less" value="less" checked>
-                            <label class="form-check-label text-secondary" for="less">
-                              -
-                            </label>
+                            <div>
+
+                                <input class="form-check-input" type="radio" name="calc" id="plus" value="plus" >
+                                <label class="form-check-label text-secondary" for="plus">
+                                    +
+                                </label>
+
+                            </div>
+
+                            <div>
+
+                                <input class="form-check-input" type="radio" name="calc" id="less" value="less">
+                                <label class="form-check-label text-secondary" for="less">
+                                    -
+                                </label>
+
+                            </div>
 
                         </fieldset>
 

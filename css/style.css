@@ -31,6 +31,9 @@ a {
     color: white;
 }
 
+
+
+
 #logo a {
     display: flex;
     text-decoration: none;
@@ -46,8 +49,7 @@ a {
     min-height: 100px;
     width: 100px;
     background-color: blue;
-}
-
+}   
 
 
 .wrapper {
