@@ -10,11 +10,13 @@ function createHeader() {
                 </a>
             </div>
 
-            <div class="dropdown">
+            <div class="dropdown" id="dropdownNav">
+
                 <button class="btn btn-secondary dropdown-toggle buttonheader" type="button" id="dropdownMenuButton buttonMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="/img/menuWhite.svg" alt="Menu de links">   
                 </button>
-                <div class="dropdown-menu p-3 mb-2 bg-dark text-white" aria-labelledby="dropdownMenuButton">
+
+                <div class="dropdown-menu dropdown-menu-right  p-3 mb-2 bg-dark text-white" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item text-light bg-dark" href="./index.html">Home</a>
                   <a class="dropdown-item text-light bg-dark" href="/pages/history.html">Historico</a>
                   <a class="dropdown-item text-light bg-dark" href="/pages/userPerfil.html">Perfil</a>

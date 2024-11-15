@@ -13,11 +13,84 @@
 
     <!-- // importar -->
 
-    <link rel="stylesheet" href="/css/style.css">
+
 
     <!-- // importar o script do header -->
 
     <script src="/layout/header.js"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        h1 {
+            margin: 10px 20px 20px 20px;
+        }
+
+        #modalMain {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start
+        }
+
+        #caixaAcao {
+            width: 350px;
+            height: 200px;
+            background-color: rgba(53, 50, 50, 0.685);
+            border-radius: 23px;
+            color: white;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: normal;
+        }
+
+        .modalCorpo form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            color: white;
+        }
+
+        .modalCorpo form input {
+            width: 500px;
+            border-radius: 10px;
+        }
+
+        .formModalInpunt {
+            display: flex;
+            flex-direction: column;
+
+            margin-bottom: 5px;
+        }
+
+        .topoCaixa {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 20px 10px 20px;
+        }
+
+        .topoCaixa figure {
+            width: 50px;
+        }
+
+        .corpoCaixa {
+            display: flex;
+            align-items: end;
+
+            margin-left: 20px;
+        }
+
+        .corpoCaixa h1 {
+            margin: 0 0 0 0px;
+            margin-left: 10px;
+
+            color: rgb(42, 189, 42);
+        }
+    </style>
 
 </head>
 
@@ -32,80 +105,111 @@
     <main>
         <div class="wrapper">
 
-            <div id="caixa">
-
-            </div>
-
-            <button id="mudarCor">
-                Mudar Cor
-            </button>
-
-            <hr style="background-color: white;">
-
             <div>
 
-                <div>
-                    <form action="submit" id="exempleCalc">
+                <!-- Primeira parte do main onde tem um titulo e um botao -->
 
-
-                        <fieldset class="exempleCalc">
-
-                            <label for="num1" class="text-secondary">Número 1:</label>
-                            <input type="number" id="num1" name="num1" min="0" required>
-
-                            <label for="num2" class="text-secondary">Número 2:</label>
-                            <input type="number" id="num2" name="num2" min="0" required>
-
-                        </fieldset>
-
-                        <fieldset class="exempleCalc">
-
-                            <div>
-
-                                <input class="form-check-input" type="radio" name="calc" id="plus" value="plus" >
-                                <label class="form-check-label text-secondary" for="plus">
-                                    +
-                                </label>
-
-                            </div>
-
-                            <div>
-
-                                <input class="form-check-input" type="radio" name="calc" id="less" value="less">
-                                <label class="form-check-label text-secondary" for="less">
-                                    -
-                                </label>
-
-                            </div>
-
-                        </fieldset>
-
-                        <button type="submit">Calcular</button>
-
-                    </form>
+                <div class="flex bt align-center">
+                    <h1>Home</h1>
+                    <button class="button" id="buttonModal">+ Adicionar</button>
                 </div>
 
-                <div>
+                <div id="modal">
+                    <main id="modalMain">
+                        <header id="headerModal">
+                            <h1>Adicionar Ação</h1>
 
+                            <button id="buttonCloseModal">
+                                <img src="../img/xwhite.svg" alt="x de fechar o modal">
+                            </button>
+                        </header>
+
+                        <div class="modalCorpo">
+
+                            <form onsubmit="handleSubmitAddTicker(event)">
+                                <div class="formModalInpunt">
+                                    <label for="urlLogo">URL Logo:</label>
+                                    <input type="text" id="urlLogo" name="urlLogo">
+                                </div>
+                                <div class="formModalInpunt">
+                                    <label for="nameCompany">Nome da Empresa:</label>
+                                    <input type="text" id="nameCompany" name="nameCompany">
+                                </div>
+                                <div class="formModalInpunt">
+                                    <label for="ticker">Símbolo:</label>
+                                    <input type="text" id="ticker" name="ticker">
+                                </div>
+                                <div class="formModalInpunt">
+                                    <label for="quantity">Quantidade:</label>
+                                    <input type="text" id="quantity" name="quantity">
+                                </div>
+                                <div class="formModalInpunt">
+                                    <label for="closedValue">Valor da Ação:</label>
+                                    <input type="text" id="closedValue" name="closedValue">
+                                </div>
+                                <input type="submit" value="Adicionar" style="width: 30%; margin-top: 20px;">
+                            </form>
+
+                        </div>
+                    </main>
                 </div>
 
             </div>
 
-            <script>
-                let caixa = document.getElementById("caixa");
-                let mudarCor = document.getElementById("mudarCor");
+            <!-- Caixa de ações  -->
+            <div>
 
-                mudarCor.addEventListener("click", function () {
-                    if (caixa.style.backgroundColor == "red") {
-                        caixa.style.backgroundColor = "blue";
-                    } else {
-                        caixa.style.backgroundColor = "red";
-                    }
-                });
+                <div id="caixaAcao">
+
+                    <div class="topoCaixa">
+                        <div style="display: flex; align-items: center;">
+                            <img src="../img/Apple.svg" alt="Logo apple"
+                                style="background-color: black; padding: 10px;">
+                            <span style="margin-left: 10px;">Apple</span>
+                        </div>
+
+                        <h6>
+                            AAPL
+                        </h6>
+                    </div>
+
+                    <div class="corpoCaixa">
+
+                        <span style="color: rgba(255, 252, 252, 0.555);">
+                            Valor:
+                        </span>
+
+                        <h1>112,00 </h1>
+                        <h4 style="padding-left: 10px; color:rgb(42, 189, 42);">▲</h4>
+
+                    </div>
+
+                    <div class="pernaCaixa">
+
+                        <span style="color: rgba(255, 252, 252, 0.555);">
+                            Quantidade:
+                        </span>
 
 
+                        <span style="color: rgb(255, 255, 255);">
+                            Valor
+                        </span>
 
-            </script>
+                        <span style="color: rgba(255, 252, 252, 0.555);">
+                            Posição:
+                        </span>
+
+
+                        <span style="color: rgb(255, 255, 255);">
+                            R$ 23.434,34
+                        </span>
+
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
     </main>
@@ -115,6 +219,36 @@
 
         </div>
     </footer>
+
+    <script>
+
+        let show = document.getElementById("buttonModal");
+        let modal = document.getElementById("modal");
+        let close = document.getElementById("buttonCloseModal");
+
+        const main = document.getElementById("modalMain");
+
+        main.addEventListener("outClick", () => {
+            modal.style.display = "none"
+        })
+
+        show.addEventListener("click", function () {
+            modal.style.display = "flex";
+        });
+
+        close.addEventListener("click", function () {
+            modal.style.display = "none"
+        });
+
+        function closeModal(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        modal.addEventListener("click", closeModal);
+
+    </script>
 
 
 
